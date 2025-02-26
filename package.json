@@ -1,0 +1,35 @@
+{
+  "name": "app-sfondo",
+  "version": "1.0.0",
+  "description": "App per selezionare gli sfondi",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "electron": "^23.0.0",
+    "electron-builder": "^23.0.0"
+  },
+  "build": {
+    "appId": "com.tuodominio.apps.sfondo",
+    "productName": "AppSfondo",
+    "files": [
+      "main.js",
+      "public/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "icon": "path-to-your-icon.png",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "path-to-your-icon.ico",
+      "target": "nsis"
+    }
+  }
+}

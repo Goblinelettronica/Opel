@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selettore di Sfondi</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s ease-in-out;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .sfondi {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .sfondo {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.3s ease-in-out;
+        }
+        .sfondo:hover {
+            transform: scale(1.1);
+        }
+        .selezionato {
+            border: 3px solid red;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seleziona uno sfondo</h1>
+    
+    <div class="container">
+        <div class="sfondi">
+            <img src="KODAMI-BIODIVERSITA-IMPORTANTE-ART-1.jpg" class="sfondo" onclick="selezionaSfondo('KODAMI-BIODIVERSITA-IMPORTANTE-ART-1.jpg')">
+            <img src="KODAMI-FARFALLE-COLORATE-ART.jpg" class="sfondo" onclick="selezionaSfondo('KODAMI-FARFALLE-COLORATE-ART.jpg')">
+            <img src="75960.jpg" class="sfondo" onclick="selezionaSfondo('75960.jpg')">
+            <img src="75960.jpg" class="sfondo" onclick="selezionaSfondo('75960.jpg')">
+            <img src="13979.jpg" class="sfondo" onclick="selezionaSfondo('13979.jpg')">
+        </div>
+        <button onclick="vaiAllaPagina()">Conferma Sfondo</button>
+    </div>
+
+    <script>
+        let sfondoSelezionato = "";
+
+        function selezionaSfondo(url) {
+            sfondoSelezionato = url;
+            
+            // Rimuove la selezione da tutte le immagini
+            document.querySelectorAll(".sfondo").forEach(img => img.classList.remove("selezionato"));
+            
+            // Aggiunge il bordo rosso all'immagine selezionata
+            event.target.classList.add("selezionato");
+        }
+
+        function vaiAllaPagina() {
+            if (sfondoSelezionato) {
+                localStorage.setItem("sfondo", sfondoSelezionato); // Salva lo sfondo scelto
+                window.location.href = "dashboard.html"; // Reindirizza all'altra pagina
+            } else {
+                alert("Seleziona prima uno sfondo!");
+            }
+        }
+    </script>
+
+</body>
+</html>

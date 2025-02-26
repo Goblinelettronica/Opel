@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: black; /* Colore di sfondo */
+    width: 1280px;
+    height: 720px;
+    margin: 0;
+}
+.logo.opel{
+    perspective: 2000px; /* Aggiunge profondità all'animazione */
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    display: flex; /* Abilita il flexbox per il contenitore */
+    justify-content: center; /* Centra orizzontalmente il contenuto */
+    align-items: center; /* Centra verticalmente il contenuto */
+}
+.text{
+    font-family: 'Times New Roman', Times, serif; /* Font serif */
+    font-style: italic; /* Imposta il testo in corsivo */
+    color: white;
+    position: absolute;
+    top: 25%; /* Posiziona verticalmente al centro */
+    left: 45%; /* Posiziona orizzontalmente al centro */
+    opacity: 0;
+    animation: fadeIn 3s forwards; /* Animazione di apparizione */
+    animation-delay: 10s; /* Ritardo per far apparire il testo dopo l'animazione dell'immagine */
+}
+.red{
+    color: blue;
+}
+.text2{
+    font-family: 'Times New Roman', Times, serif; /* Font serif */
+    font-style: italic; /* Imposta il testo in corsivo */
+    color: blue;
+    position: absolute;
+    top: 30%; /* Posiziona verticalmente al centro */
+    left: 52%; /* Posiziona orizzontalmente al centro */
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Animazione di apparizione */
+    animation-delay: 10s; /* Ritardo per far apparire il testo dopo l'animazione dell'immagine */
+}
+
+.animated-image {
+    width: 70%; /* Dimensione iniziale dell'immagine */
+    transform: scale(0.1); /* Inizialmente piccola */
+    opacity: 1; /* Inizialmente visibile */
+    animation: zoomIn 8s forwards; /* Avvia l'animazione */
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.1); /* Inizio piccola */
+    }
+    100% {
+        transform: scale(1); /* Rimane alla dimensione normale */
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Inizio invisibile */
+    }
+    100% {
+        opacity: 1; /* Diventa visibile */
+    }
+}
