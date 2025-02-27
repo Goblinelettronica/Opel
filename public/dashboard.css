@@ -114,8 +114,9 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   transition: .4s;  
-  width: 1280px;
-  height: 720px;
+  width: 100vw;
+  height:100vh;
+  cursor:none;
 
 }
 a {
