@@ -1,21 +1,27 @@
 body {
+    margin: 0;
+    background-color: black; /* Colore di sfondo */
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: black; /* Colore di sfondo */
-    width: 1280px;
-    height: 720px;
-    margin: 0;
 }
 .logo.opel{
-    perspective: 2000px; /* Aggiunge profondità all'animazione */
-    width: 50%;
-    height: 50%;
-    margin: 0;
-    display: flex; /* Abilita il flexbox per il contenitore */
-    justify-content: center; /* Centra orizzontalmente il contenuto */
-    align-items: center; /* Centra verticalmente il contenuto */
+    position: relative; /* Contenitore di riferimento */
+    width: 100vw;  /* Larghezza piena */
+    height: 100vh; /* Altezza piena */
+    background-color: black; /* Per visibilità */
+    
+
+}
+img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    animation: zoomIn 2s infinite alternate ease-in-out;
 }
 .text{
     font-family: 'Times New Roman', Times, serif; /* Font serif */
@@ -23,7 +29,7 @@ body {
     color: white;
     position: absolute;
     top: 25%; /* Posiziona verticalmente al centro */
-    left: 45%; /* Posiziona orizzontalmente al centro */
+    left: 63%; /* Posiziona orizzontalmente al centro */
     opacity: 0;
     animation: fadeIn 3s forwards; /* Animazione di apparizione */
     animation-delay: 10s; /* Ritardo per far apparire il testo dopo l'animazione dell'immagine */
@@ -37,7 +43,7 @@ body {
     color: blue;
     position: absolute;
     top: 30%; /* Posiziona verticalmente al centro */
-    left: 52%; /* Posiziona orizzontalmente al centro */
+    left: 68%; /* Posiziona orizzontalmente al centro */
     opacity: 0;
     animation: fadeIn 1s forwards; /* Animazione di apparizione */
     animation-delay: 10s; /* Ritardo per far apparire il testo dopo l'animazione dell'immagine */
@@ -48,14 +54,15 @@ body {
     transform: scale(0.1); /* Inizialmente piccola */
     opacity: 1; /* Inizialmente visibile */
     animation: zoomIn 8s forwards; /* Avvia l'animazione */
-}
 
+
+}
 @keyframes zoomIn {
     0% {
-        transform: scale(0.1); /* Inizio piccola */
+        transform: translate(-50%, -50%) scale(0.1); /* Inizio piccola */
     }
     100% {
-        transform: scale(1); /* Rimane alla dimensione normale */
+        transform: translate(-50%, -50%) scale(1); /* Rimane alla dimensione normale */
     }
 }
 @keyframes fadeIn {
