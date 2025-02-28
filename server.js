@@ -12,7 +12,19 @@ app.get('/', (req, res) => {
 });
 
 const url = `http://localhost:${PORT}`;
-const chromiumCommand =`chromium-browser --new-window ${url}`
+const chromiumCommand =`chromium-browser --new-window ${url}`    // Open Chromium browser when the server starts
+    exec(chromiumCommand, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error opening browser: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`Browser stderr: ${stderr}`);
+            return;
+        }
+        console.log(`Browser stdout: ${stdout}`);
+    });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
