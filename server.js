@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const { exec } = require("child_process");
 
-const app = express(); // Express, NON Electron
+const app = express();
 const PORT = 5001;
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -10,27 +10,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
 const url = `http://localhost:${PORT}`;
-sleep 10;
-// Comando per avviare Chromium (Linux)
+
 const chromiumCommand = `chromium-browser --new-window ${url}`;
 
-// Per Windows, sostituisci con il percorso di Chrome/Chromium
-// const chromiumCommand = `"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" --new-window ${url}`;
-
-exec(chromiumCommand, (err) => {
-    if (err) {
-        console.error("Errore nell'apertura di Chromium:", err);
-    }
-});
-
-app.listen(PORT, () => {
-    console.log(`Server avviato su http://localhost:${PORT}`);
+const startChromium = () => {
     exec(chromiumCommand, (err) => {
         if (err) {
             console.error("Errore nell'apertura di Chromium:", err);
         }
     });
-});
+};
 
+app.listen(PORT, () => {
+    console.log(`Server avviato su http://localhost:${PORT}`);
+    setTimeout(() => {
+        startChromium();  // Avvia Chromium dopo 10 secondi
+    }, 10000);  // 10 secondi in millisecondi
+});
 
