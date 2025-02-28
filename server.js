@@ -26,6 +26,11 @@ exec(chromiumCommand, (err) => {
 
 app.listen(PORT, () => {
     console.log(`Server avviato su http://localhost:${PORT}`);
+    exec(chromiumCommand, (err) => {
+        if (err) {
+            console.error("Errore nell'apertura di Chromium:", err);
+        }
+    });
 });
 
 
