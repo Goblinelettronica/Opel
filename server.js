@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 const url = `http://localhost:${PORT}`;
-const chromiumCommand =`chromium-browser --new-window ${url}`    // Open Chromium browser when the server starts
+const chromiumCommand =`chromium-browser ${url}`    // Open Chromium browser when the server starts
 
 app.listen(PORT, () => {
     console.log(`Server running on ${url}`);
