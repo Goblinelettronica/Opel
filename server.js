@@ -12,17 +12,7 @@ app.get('/', (req, res) => {
 });
 
 const url = `http://localhost:${PORT}`;
-
-setTimeout(() => {
-    exec(`chromium-browser --new-window ${url}`, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-    });
-}, 10000); // 10000 ms = 5 secondi
+const chromiumCommand =`chromium-browser --new-window ${url}`
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
