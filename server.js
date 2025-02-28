@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'caricamento.html'));
 });
 const url = `http://localhost:${PORT}`;
-
+sleep 4;
 // Comando per avviare Chromium (Linux)
 const chromiumCommand = `chromium-browser --new-window ${url}`;
 
