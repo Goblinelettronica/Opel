@@ -8,10 +8,10 @@ const PORT = 5001;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'caricamento.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 const url = `http://localhost:${PORT}`;
-sleep 4;
+sleep 10;
 // Comando per avviare Chromium (Linux)
 const chromiumCommand = `chromium-browser --new-window ${url}`;
 
