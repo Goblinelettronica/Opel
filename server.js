@@ -22,7 +22,7 @@ setTimeout(() => {
         console.log(`stdout: ${stdout}`);
         console.error(`stderr: ${stderr}`);
     });
-}, 5000); // 10000 ms = 5 secondi
+}, 10000); // 10000 ms = 5 secondi
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
