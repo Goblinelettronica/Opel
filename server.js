@@ -13,20 +13,19 @@ app.get('/', (req, res) => {
 
 const url = `http://localhost:${PORT}`;
 
-const chromiumCommand = `chromium-browser --new-window ${url}`;
-
-const startChromium = () => {
-    exec(chromiumCommand, (err) => {
-        if (err) {
-            console.error("Errore nell'apertura di Chromium:", err);
+setTimeout(() => {
+    exec(`chromium-browser --new-window ${url}`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
         }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
     });
-};
+}, 5000); // 10000 ms = 5 secondi
 
 app.listen(PORT, () => {
-    console.log(`Server avviato su http://localhost:${PORT}`);
-    setTimeout(() => {
-        startChromium();  // Avvia Chromium dopo 10 secondi
-    }, 10000);  // 10 secondi in millisecondi
+    console.log(`Server running on http://localhost:${PORT}`);
 });
+
 
